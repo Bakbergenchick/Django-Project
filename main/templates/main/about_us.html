@@ -1,0 +1,266 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <link rel="stylesheet" href="{% static 'main/css/template.css' %}" type="text/css">
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-black navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            <a class="navbar-brand" href="#">
+            <img src="{% static 'main/img/clapperboard.png' %}" width="30" height="30" alt="">
+            Movie.kz
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0 d-flex align-items-center">
+                <li class="nav-item mx-2">
+                <a class="nav-link fs-6 text-light" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item mx-2">
+                <a class="nav-link fs-6 text-light" href="{% url 'movies' %}">Movies</a>
+                </li>
+                <li class="nav-item mx-2">
+                <a class="nav-link fs-6 text-light" href="{% url 'about_us' %}">About us</a>
+                </li>
+                {% if not user.is_authenticated %}
+                <li  class="nav-item mx-2"><a class="nav-link fs-6 text-light" href="{%  url 'signupuser' %}">Sign up/Sign in</a></li>
+                {% else %}
+                  {% if  user.is_superuser %}
+                    <li class="nav-item mx-2"><a class="nav-link fs-6 text-light" href="{% url 'admin' %}">MyAdmin</a></li>
+                  {% endif %}
+
+                   <li class="nav-item mx-2"><a  class="nav-link fs-6 text-light" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</a></li>
+                {% endif %}
+            </ul>
+            <form class="d-flex">
+                <input class="px-2 search" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn0" type="submit">Search</button>
+            </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h2>Are you sure?</h2>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal">NO</button>
+              <form action="{% url 'logoutuser' %}">
+                <button type="submit" class="btn btn-danger">YES</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="about_us container">
+        <div class="row offset-1">
+            <div class="col-8 ">
+                <h1 class="about_us header-name">About us</h1>
+                <p class="about_us header-phrase">Movies.kz is one of the largest legal online cinemas in Kazakhstan, we have been successfully operating since 2021.</p>
+                <p class="about_us header-info">Our catalog contains over 70,000 films, cartoons and serials. Since its launch, the service has been visited by over 20 million users. The monthly audience is 0.8 million people.</p>
+                <p class="about_us header-info">Movies.kz is available on most smart TVs (Samsung, Sony, LG, Philips, Panasonic and other popular models), game consoles (PlayStation 3, 4 and 5 and Series X | S) and mobile devices (Android and iOS) ... Download movies and TV series to mobile devices and watch anywhere in the world, even without the Internet.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Opportunity -->
+    <br><br>
+    <div class="opportunity">
+        <div class="row offset-2">
+            <div class="col-7">
+            <p id="fvd">Movies.kz - advanced sound and image technologies</p>
+            <p id="sef">Our technologies allow you to create the picture and sound quality in your home that will give you the feeling of theatrical viewing.
+                Movies.kz is the first online cinema in Kazakhstan, which gave viewers the opportunity to watch movies with Dolby Atmos and Dolby Digital Plus sound.
+                Watch movies in HDR, 3D, Ultra HD 4K and 8K quality.
+                No ads, no distractions - just an immersion in the world of cinema!
+            </p>
+            </div>
+            <div class="col-5">
+                <div class="opp-img"></div>
+            </div>
+            <ul class="resolution">
+                <li><img src="{% static 'main/img/3d.svg' %}" width="30px" height="18px" alt=""></li>
+                <li><img src="{% static 'main/img/8k.svg' %}" width="30px" height="18px" alt=""></li>
+                <li><img src="{% static 'main/img/dolby-atmos.svg' %}" width="180px" height="30px" alt=""></li>
+                <li><img src="{% static 'main/img/dolby.svg' %}" width="100px" height="30px" alt=""></li>
+                <li><img src="{% static 'main/img/full-hd.svg' %}" width="76px" height="30px" alt=""></li>
+                <li><img src="{% static 'main/img/ultra-hd-4k.svg' %}" width="125px" height="30px" alt=""></li>
+                <li><img src="{% static 'main/img/hdr.svg' %}" width="67px" height="36px" alt=""></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Partnership -->
+    <div class="partner container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="partner-header">Our partners</h2>
+                <ul class="partners">
+                    <li class="partner">
+                        <img src="{% static 'main/img/partner-aeroflot.7f3cf8a4.webp' %}" width="169px" height="109" alt="">
+                    </li>
+                    <li class="partner">
+                        <img src="{% static 'main/img/partner-alfa-bank.3273f0a1.webp' %}" width="169px" height="109" alt="">
+                    </li>
+                    <li class="partner">
+                        <img src="{% static 'main/img/partner-bayer.1aed0991.webp' %}" width="169px" height="109" alt="">
+                    </li>
+                    <li class="partner">
+                        <img src="{% static 'main/img/partner-mail-ru.590e3f3c.webp' %}" width="169px" height="109" alt="">
+                    </li>
+                    <li class="partner">
+                        <img src="{% static 'main/img/partner-nestle.b7b844f5.webp' %}" width="169px" height="109" alt="">
+                    </li>
+                    <li class="partner">
+                        <img src="{% static 'main/img/partner-pernod-richard.cfda864d.webp' %}" width="169px" height="109" alt="">
+                    </li>
+                    <li class="partner">
+                        <img src="{% static 'main/img/partner-red-bull.f8208546.webp' %}" width="169px" height="109" alt="">
+                    </li>
+                    <li class="partner">
+                        <img src="{% static 'main/img/partner-rayffayzen.babf6fc1.webp' %}" width="169px" height="109" alt="">
+                    </li>
+                    <li class="partner">
+                        <img src="{% static 'main/img/partner-rzd.026fc289.webp' %}" width="169px" height="109" alt="">
+                    </li>
+                    <li class="partner">
+                        <img src="{% static 'main/img/partner-sberbank.26b009e0.webp' %}" width="169px" height="109" alt="">
+                    </li>
+                    <li class="partner">
+                        <img src="{% static 'main/img/partner-s7.db394fdd.webp' %}" width="169px" height="109" alt="">
+                    </li>
+                    <li class="partner">
+                        <img src="{% static 'main/img/partner-nevosoft.36200236.webp' %}" width="169px" height="109" alt="">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location -->
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="location-header">Our location</h2>
+                <div class="col ms-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1518.3626370767347!2d-3.5998024!3d40.4370818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422fea8401b789%3A0x245d0d64dad50ec4!2z0JLQsNC90LTQsCDQnNC10YLRgNC-0L_QvtC70LjRgtCw0L3Qvg!5e0!3m2!1sru!2skz!4v1639951135387!5m2!1sru!2skz" width="1250" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer section -->
+    <footer class="site-footer">
+        <div class="footer-widgets">
+            <div class="container">
+                <div class="row">
+                    <div class="desc col-12 col-md-6 col-lg-3">
+                        <div class="foot-about">
+                            <a class="foot-logo" href="#" style="text-decoration: none;">
+                                <img src="{% static 'main/img/clapperboard.png' %}" width="30px" height="30px" alt="">
+                                <span class="text-danger">Movies.kz</span>
+                            </a>
+
+                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. </p>
+
+                            <p class="footer-copyright">
+                                Copyright @2021 All rights reserved | This template is made with by <a href="https://colorlib.com">Movies.kz</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
+                        <div class="foot-contact">
+                            <h2>Contact Us</h2>
+
+                            <ul>
+                                <li>Email: movieskz@gmail.com</li>
+                                <li>Phone: (+88) 111 555 666</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="quick-l col-12 col-md-6 col-lg-3 mt-5 mt-lg-0">
+                        <div class="quick-links d-flex flex-wrap">
+                            <h2 class="w-100">Quick Links</h2>
+
+                            <ul class="w-50">
+                                <li><a href="#">About </a></li>
+                                <li><a href="#">Terms of Use </a></li>
+                                <li><a href="#">Privacy Policy </a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+
+                            <ul class="w-50">
+                                <li><a href="#">Documentation</a></li>
+                                <li><a href="#">Forums</a></li>
+                                <li><a href="#">Language Packs</a></li>
+                                <li><a href="#">Release Status</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="follow col-12 col-md-6 col-lg-3 mt-5 mt-lg-0">
+                        <div class="follow-us">
+                            <h2>Follow Us</h2>
+
+                            <ul class="follow-us d-flex flex-row flex-wrap align-items-center">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bar">
+            <div class="container">
+                <div class="row flex-wrap justify-content-center justify-content-lg-between align-items-center">
+                    <div class="col-10 col-lg-6 col-sm-10">
+                        <h2 class="text-white down-app-txt">Download app</h2>
+                        <div class="download-apps d-flex flex-row flex-wrap justify-content-center justify-content-lg-start align-items-center">
+                            <a href="#"><img src="{% static 'main/img/google-play.png' %}" alt=""></a>
+                            <a href="#"><img src="{% static 'main/img/app-store.png' %}" alt=""></a>
+                        </div>
+
+                    </div>
+
+                    <div class="col-8 col-lg-6 col-sm-10 col-xs mt-4 mt-lg-0">
+                        <div class="footer-bar-nav">
+                            <ul id="priv" class="d-flex flex-wrap justify-content-center  align-items-center">
+                                <li><a href="#">DPA</a></li>
+                                <li><a href="#">Terms of Use</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: rgb(15, 13, 13);
+}
+/* Navbar */
+.navbar-brand {
+    color:white;
+    font-size: 20px;
+}
+
+.navbar-brand:hover {
+    color: red;
+}
+
+.nav-item{
+    list-style-type: none;
+}
+.nav-link {
+    color: white;
+    text-transform: uppercase;
+}
+
+.search {
+    height: 40px;
+    width: 80%;
+    border-radius: 60px;
+    outline: none;
+    border: 2px solid red;
+    margin-right: -35px;
+}
+
+.nav-item .mx-2:hover{
+    color: red;
+}
+.btn0 {
+    height: 40px;
+    width: 40%;
+    outline: none;
+    border: none;
+    background-color: red;
+    color:white;
+    border-radius: 60px;
+    font-weight: bold;
+}
+
+.site-footer{
+    margin-top: 20px;
+}
+
+/* Content */
+.about_us > .container{
+    max-width: 900px;
+    margin: 0 auto;
+}
+.about_us .header-name{
+    font-size: 2rem;
+    /* font-family: DejaVu Sans Mono, monospace; */
+    line-height: 50px;
+    margin: 30px 0;
+}
+
+.about_us .header-phrase{
+    font-size: 1.2rem;
+    font-weight: 700;
+
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+
+.about_us .header-info{
+    font-size: 1.2rem;
+    font-weight: 300;
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+
+/* Opportuniy */
+.opportunity{
+    background-color: #f2f2f2;
+    padding: 50px 0;
+    /* padding-left: 200px; */
+    padding-bottom: 100px;
+}
+
+.col-7{
+    padding-top: 30px;
+}
+.opp-img{
+    background: url('../img/tv-technologies.5aed5176.png') no-repeat 50%;
+    background-size: 660px 660px;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    top: 250px;
+    /* left: 350px; */
+    right: 20px;
+    width: 700px;
+    height: 140vh;
+}
+
+#fvd{
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+
+#sef{
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+}
+
+.resolution {
+    display: flex;
+}
+
+.resolution > li{
+    list-style-type: none;
+    margin-right: 25px;
+}
+
+/* Partnership */
+.partner-header{
+    margin: 30px 20px;
+}
+.partners{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* margin: 20px 20px; */
+    gap: 20px 20px;
+}
+.partner{
+    list-style-type: none;
+    flex-basis: 15%;
+
+}
+
+/* Location */
+.location-header{
+    margin: 30px 20px;
+}
+
+
+/* Footer */
+.footer-widgets {
+
+    padding: 60px 0;
+    color: #ebebeb;
+    background: rgb(41, 38, 38);
+
+}
+
+.foot-about p {
+    margin-top: 40px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #e8e9f3;
+}
+
+p.footer-copyright {
+    color: #f0f0f0;
+}
+
+.footer-widgets h2 {
+    margin-bottom: 40px;
+    font-size: 20px;
+    color: #f7f7f7;
+}
+
+.footer-widgets ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer-widgets ul li {
+    margin-bottom: 12px;
+}
+
+.footer-widgets ul li a {
+    color: #f2f2fd;
+    text-decoration: none;
+}
+
+.footer-widgets ul li a:hover {
+    color: #d93434;
+}
+
+.footer-widgets .follow-us .fa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.footer-widgets .follow-us .fa-facebook {
+    background: #4b6cd0;
+}
+
+.footer-widgets .follow-us .fa-google-plus {
+    background: #f03b3b;
+}
+
+.footer-widgets .follow-us .fa-instagram {
+    background: #bb8950;
+}
+
+.footer-widgets .follow-us .fa-twitter {
+    background: #49a7f3;
+}
+
+.footer-bar {
+    padding: 30px 0;
+    border-top: 3px solid #4e4e4e;
+    background-color: black;
+}
+
+.footer-bar .download-apps a {
+    display: block;
+    margin-right: 10px;
+}
+
+.footer-bar .download-apps a img {
+    display: block;
+}
+
+.footer-bar-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer-bar-nav ul li {
+    margin-left: 20px;
+}
+
+.footer-bar-nav ul li a {
+    color: #f5f5f8;
+    text-decoration: none;
+}
+
+.footer-bar-nav ul li a:hover {
+    color: #ca1111;
+}

@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet");
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black
+}
+/* Navigation */
+
+.navbar-brand {
+    color:white;
+    font-size: 20px; 
+}
+
+.navbar-brand:hover {
+    color: red; 
+}
+.navbar-nav{
+    display: flex;
+    align-items: center;
+}
+.nav-item{
+    list-style-type: none;
+}
+.nav-link {
+    color: white;
+    text-transform: uppercase;
+}
+
+.search {
+    height: 40px;
+    width: 80%;
+    border-radius: 60px;
+    outline: none;
+    border: 2px solid red;
+    margin-right: -35px;
+}
+
+.nav-item .mx-2:hover{
+    color: red;
+}
+
+#search_btn {
+    height: 40px;
+    width: 40%;
+    outline: none;
+    border: none;
+    background-color: red;
+    color:white;
+    border-radius: 60px;
+    font-weight: bold;
+}
+
+/* Banner image */
+#banner {
+    position: relative;
+    
+}
+
+.text-danger{
+    background-color: rgba(0,0,0, 0.7);
+    padding: 20px;
+    font-size: 4rem;
+    font-weight: 700;
+    z-index: 2;
+    font-family: "Sniglet", cursive;
+}
+
+#free_btn {
+    z-index: 2;
+    display: block;
+    background-color:red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 60px;
+}
+
+#free_btn:hover{
+    opacity: 0.7;
+    transition:0.5s;
+}
+
+.btn-xl {
+    font-size: 1.5rem;
+    padding: 1.5rem 2.1rem;
+    text-transform: uppercase;
+}
+
+#banner::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow:  inset 0px 0px 200px 120px rgba(0, 0, 0.7);
+}
+
+/* Sections */
+
+#card1, #card2, #card3 {
+    border-top: 5px solid grey;
+    padding: 20px 40px;
+    color: white;
+}
+
+#card3{
+    border-bottom: 5px solid grey;
+}
+
+.cdtxt{
+    margin-left: 40px;
+}
+
+/* Accordition */
+
+.accordion-button {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    background: #c2050e;
+    font-family: "Rubik", cursive;
+}
+
+.accordion-item{
+    border: none;
+}
+
+.accmtxt {
+    text-align: center;
+    color:white;
+}
+.accordion-body {
+    color: white;
+    font-size: 20px;
+    background: #c2050e;
+    font-family: "Rubik", cursive;
+}
+
+/* Footer */
+.footer {
+	max-width: 80%;
+	margin: 1rem auto;
+}
+
+.footer,
+.footer a {
+    color: rgb(209, 209, 209);
+	font-size: 1rem;
+    text-decoration: none;
+}
+
+.footer .footer-cols {
+	justify-content: space-between;
+}
+
+.footer li {
+	line-height: 1.9;
+}
+
+.text-center {
+    border-top: 2px solid grey;
+    color: rgb(209, 209, 209);
+    font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 706px) {
+
+    .footer-cols{
+        display: flex;
+        flex-wrap: wrap;
+    } 
+
+    .footer-cols ul{
+        flex-basis: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    } 
+
+     .footer-cols ul li {
+        flex-basis: 40%;
+
+    } 
+}
+
+@media only screen and (max-width: 670px) {
+
+    .cards{
+        flex-wrap: wrap;
+    }
+    .cdtxt, .cdtxt2{
+        flex-basis: 100%;
+        margin-left: 10px;
+    }
+    .secimg{
+        flex-basis: 80%;
+    }
+    .secimg img{
+        max-width: 100%;
+    }
+
+    .bg-image h1{
+        font-size: 40px;
+        padding: 50px;
+        text-align: center;
+    }
+
+    .bg-image a{
+        width: 50%;
+        font-size: 15px;
+        padding: 10px;
+    }
+}

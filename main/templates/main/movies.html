@@ -1,0 +1,367 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Movies(bootstrap)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animateCSS/1.2.2/jquery.animatecss.min.js">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Css bootsrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'main/css/movies.css' %}" type="text/css">
+
+    <!-- Owl carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+    crossorigin="anonymous" />
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-black navbar-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <a class="navbar-brand" href="#">
+            <img src="{%  static 'main/img/clapperboard.png' %}" width="30" height="30" alt="">
+            Movie.kz
+            </a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0 d-flex align-items-center">
+              <li class="nav-item mx-2">
+                <a class="nav-link fs-6 text-light" href="{% url 'index' %}">Home</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link fs-6 text-light" href="{% url 'movies' %}">Movies</a>
+              </li>
+              <li class="nav-item mx-2">
+                <a class="nav-link fs-6 text-light" href="{% url 'about_us' %}">About us</a>
+              </li>
+              {% if not user.is_authenticated %}
+                <li  class="nav-item mx-2"><a class="nav-link fs-6 text-light" href="{%  url 'signupuser' %}">Sign up/Sign in</a></li>
+              {% else %}
+                  {% if  user.is_superuser %}
+                    <li class="nav-item mx-2"><a class="nav-link fs-6 text-light" href="{% url 'admin' %}">MyAdmin</a></li>
+                  {% endif %}
+
+                  <li class="nav-item mx-2"><a  class="nav-link fs-6 text-light" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Logout</a></li>
+              {% endif %}
+            </ul>
+            <form class="d-flex">
+              <input class="px-2 search" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn0" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+              <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <h2>Are you sure?</h2>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal">NO</button>
+              <form action="{% url 'logoutuser' %}">
+                <button type="submit" class="btn btn-danger">YES</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <!-- Banner slider -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="overlay-img" style="background-image: url({%  static 'main/img/avengers.jpg' %}); height: 100vh;"></div>
+            <div class="container-lg d-flex flex-column justify-content-center align-items-center">
+              <h1>Avengers</h1>
+              <a href="" class="btn btn-lg btn-danger wt-now">Watch now</a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="overlay-img" style="background-image: url({%  static 'main/img/venom.jpg' %}); height: 100vh;"></div>
+            <div class="container-lg d-flex flex-column justify-content-center align-items-center">
+                <h1>Venom</h1>
+                <a href="" class="btn btn-lg btn-danger wt-now">Watch now</a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="overlay-img" style="background-image: url({%  static 'main/img/Guardians-of-the-Galaxy_1920x1080.jpg' %}); height: 100vh;"></div>
+            <div class="container-lg d-flex flex-column justify-content-center align-items-center ban-txt">
+              <h1 class="text-xl-center text-end">Guardians of galaxy</h1>
+              <a href="" class="btn btn-lg btn-danger wt-now">Watch now</a>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon d-flex align-self-center" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+      <!-- Section of Films -->
+    {% for c in category %}
+        <div class="container-fluid my-3">
+    {#        <h1 class="text-center fw-bold display-2 mb-5 text-white">Top <span class="text-danger">100</span></h1>#}
+        <h1 class="text-center fw-bold display-2 mb-5 text-white">{{ c.name }}</h1>
+            <div class="row">
+                <div class="col-12 m-auto">
+                    <div class="owl-carousel owl-theme">
+                        {% for m in movies %}
+                            {% if m.categoryID_id == c.id %}
+                        <div class="item mb-4">
+                            <div class="card border-0 shadow">
+                                <img src="{{ m.image.url }}" alt="" class="card-img-top">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <div class="card-title text-center">
+                                        <h4>{{ m.title }}</h4>
+                                    </div>
+                                    <div class="movie-btn">
+                                        <a href="" class="btn btn-md btn-danger wt-now">Watch now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            {% endif %}
+                        {% endfor movies %}
+                    </div>
+                {
+                </div>
+            </div>
+        </div>
+    {% endfor category%}
+    
+    <!-- Pricing -->
+    <div class="section">
+        <div class="container">
+            <div class="pricing">
+                <div class="pricing-header">
+                    <span class="text-danger">Movies.kz</span> 
+                    <span class="text-white">subscription</span> 
+                </div>
+                <div class="pricing-list">
+                    <div class="row">
+                        <div class="col-4 col-md-12 col-sm-12">
+                            <div class="pricing-box">
+                                <div class="pricing-box-header">
+                                    <div class="pricing-name">
+                                        Basic
+                                    </div>
+                                    <div class="pricing-price">
+                                        $12.99 <span>/month</span>
+                                    </div>
+                                </div>
+                                <div class="pricing-box-content">
+                                    <p>Originals</p>
+                                    <p><del>Swich plans anytime</del></p>
+                                    <p><del>65+ top Live</del></p>
+                                    <p><del>TV Channels</del></p>
+                                </div>
+                                <div class="pricing-box-action">
+                                    <a href="#">
+                                        <button type="button" class="btn btn-danger">Register now</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-12 col-sm-12">
+                            <div class="pricing-box hightlight">
+                                <div class="pricing-box-header">
+                                    <div class="pricing-name">
+                                        Premium
+                                    </div>
+                                    <div class="pricing-price">
+                                        $35.99 <span>/month</span>
+                                    </div>
+                                </div>
+                                <div class="pricing-box-content">
+                                    <p>Originals</p>
+                                    <p>Swich plans anytime</p>
+                                    <p><del>65+ top Live</del></p>
+                                    <p><del>TV Channels</del></p>
+                                </div>
+                                <div class="pricing-box-action">
+                                    <a href="#">
+                                        <button type="button" class="btn btn-danger">Register now</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-12 col-sm-12">
+                            <div class="pricing-box">
+                                <div class="pricing-box-header">
+                                    <div class="pricing-name">
+                                        VIP
+                                    </div>
+                                    <div class="pricing-price">
+                                        $65.99 <span>/month</span>
+                                    </div>
+                                </div>
+                                <div class="pricing-box-content">
+                                    <p>Originals</p>
+                                    <p>Swich plans anytime</p>
+                                    <p>50+ top Live</p>
+                                    <p>TV Channels</p>
+                                </div>
+                                <div class="pricing-box-action">
+                                    <a href="#">
+                                        <button type="button" class="btn btn-danger">Register now</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Footer section -->
+    <footer class="site-footer">
+        <div class="footer-widgets">
+            <div class="container">
+                <div class="row">
+                    <div class="desc col-12 col-md-6 col-lg-3">
+                        <div class="foot-about">
+                            <a class="foot-logo" href="#" style="text-decoration: none;">
+                                <img src="{%  static 'main/img/clapperboard.png' %}" width="30px" height="30px" alt="">
+                                <span class="text-danger">Movies.kz</span>
+                            </a>
+
+                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dese mollit anim id est laborum. </p>
+
+                            <p class="footer-copyright">
+                                Copyright @2021 All rights reserved | This template is made with by <a href="https://colorlib.com">Movies.kz</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="contact col-12 col-md-6 col-lg-3 mt-5 mt-md-0">
+                        <div class="foot-contact">
+                            <h2>Contact Us</h2>
+
+                            <ul>
+                                <li>Email: movieskz@gmail.com</li>
+                                <li>Phone: (+88) 111 555 666</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="quick-l col-12 col-md-6 col-lg-3 mt-5 mt-lg-0">
+                        <div class="quick-links d-flex flex-wrap">
+                            <h2 class="w-100">Quick Links</h2>
+
+                            <ul class="w-50">
+                                <li><a href="#">About </a></li>
+                                <li><a href="#">Terms of Use </a></li>
+                                <li><a href="#">Privacy Policy </a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+
+                            <ul class="w-50">
+                                <li><a href="#">Documentation</a></li>
+                                <li><a href="#">Forums</a></li>
+                                <li><a href="#">Language Packs</a></li>
+                                <li><a href="#">Release Status</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="follow col-12 col-md-6 col-lg-3 mt-5 mt-lg-0">
+                        <div class="follow-us">
+                            <h2>Follow Us</h2>
+
+                            <ul class="follow-us d-flex flex-row flex-wrap align-items-center">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bar">
+            <div class="container">
+                <div class="row flex-wrap justify-content-center justify-content-lg-between align-items-center">
+                    <div class="col-10 col-lg-6 col-sm-10">
+                        <h2 class="text-white down-app-txt">Download app</h2>
+                        <div class="download-apps d-flex flex-row flex-wrap justify-content-center justify-content-lg-start align-items-center">
+                            <a href="#"><img src="{%  static 'main/img/app-store.png' %}" alt=""></a>
+                            <a href="#"><img src="{%  static 'main/img/google-play.png' %}" alt=""></a>
+                        </div>
+
+                    </div>
+
+                    <div class="col-8 col-lg-6 col-sm-10 col-xs mt-4 mt-lg-0">
+                        <div class="footer-bar-nav">
+                            <ul id="priv" class="d-flex flex-wrap justify-content-center  align-items-center">
+                                <li><a href="#">DPA</a></li>
+                                <li><a href="#">Terms of Use</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JQuery -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: false,
+            margin: 20,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 3
+                },
+                1400: {
+                    items: 4
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% extends 'main/tmp.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row mt-3">
+    <div class="col col-4 offset-3">
+             <form action="{% url 'updateFilm' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden"  name="film_id" value="{{ film.id }}">
+                        <img src="{{ film.image.url }}" width="368px" height="270px">
+                        <div class="form-group mt-5">
+                                    <label>Image</label>
+                                    <div class="custom-file">
+                                        <input type="file" name="film_image" accept=".jpg, .jpeg, .png">
+                                     </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label>Title</label>
+                            <input type="text" name="title" class="form-control" required value="{{ film.title }}">
+                        </div>
+                        <div class="form-group mt-3">
+                            <label>Genre</label>
+                            <input type="text" name="genre" class="form-control" required value="{{ film.genre }}">
+                        </div>
+{#                        <div class="form-group mt-3">#}
+{#                            <label>Rating</label>#}
+{#                            <input type="price" name="rating" class="form-control" required value="{{ film.rating }}">#}
+{#                        </div>#}
+                        <div class="form-group mt-3">
+                            <label>Category</label>
+                            <select name="cat_id">
+                                <option value="1" {% if film.categoryID_id == 1 %}
+                                  selected
+                                {% endif %}>Top 100
+                                </option>
+                                <option value="2" {% if  film.categoryID_id == 2 %}
+                                  selected
+                                {% endif %}>Serials
+                                </option>
+                                <option value="3" {% if  film.categoryID_id == 3 %}
+                                  selected
+                                {% endif %} >Latest Movies
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label>Description</label>
+                            <input type="text" name="desc" class="form-control" required value="{{ film.desc }}">
+                        </div>
+                        <div class="form-group btns mt-3">
+                            <button class="btn btn-success">Save</button>
+                        </div>
+            </form>
+     </div>
+</div>
+{% endblock %}

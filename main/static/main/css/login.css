@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-attachment: fixed;
+    background-position:center;
+    background-size: cover;
+}
+
+/* Navigation */
+.navbar-brand {
+    color:white;
+    font-size: 20px; 
+}
+
+.navbar-brand:hover {
+    color: red; 
+}
+
+.nav-link {
+    color: white;
+    text-transform: uppercase;
+}
+
+.search {
+    height: 40px;
+    width: 80%;
+    border-radius: 60px;
+    outline: none;
+    border: 2px solid red;
+    margin-right: -35px;
+}
+
+.nav-item .mx-2:hover{
+    color: red;
+}
+.btn0 {
+    height: 40px;
+    width: 40%;
+    outline: none;
+    border: none;
+    background-color: red;
+    color:white;
+    border-radius: 60px;
+    font-weight: bold;
+}
+
+
+/* Login */
+.log{
+    margin-top: 180px;
+}
+
+.log h2{
+    color: red;
+    font-family: 'Rubik';
+    font-weight: bold;
+}
+
+.form-container{
+    background: #202121;
+    padding: 30px;
+    box-shadow: 0px 0px 20px 0px #000;
+    border-radius: 20px;
+}
+
+.inp input[type="password"], .inp input[type="email"]{
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 24px;
+    border-style: solid;
+    border-color: #0a0864;
+    transition: 0.25s;
+}
+
+.inp input[type="email"]:focus,  input[type="password"]:focus{
+    width: 200px;
+}
+
+.e-lab, .p-lab{
+    color:white;
+    font-weight: 200;
+    
+}
